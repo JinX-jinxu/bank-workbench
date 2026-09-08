@@ -1,0 +1,8 @@
+.preview/
+__pycache__/
+*.pyc
+_probe_*.py
+_audit_*.py
+_audit_*.js
+_check.js
+*.tmp

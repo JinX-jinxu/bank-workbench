@@ -1,0 +1,2122 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>贵州银行类岗位投递追踪工作台</title>
+  <style>
+    :root {
+      --bg: #f6f8fb;
+      --surface: #ffffff;
+      --line: #d8e0ea;
+      --line-strong: #b8c4d2;
+      --text: #17202a;
+      --muted: #657488;
+      --blue: #1f6feb;
+      --blue-soft: #eaf2ff;
+      --green: #16845b;
+      --green-soft: #e8f6ef;
+      --amber: #a76405;
+      --amber-soft: #fff2d9;
+      --red: #c23b32;
+      --red-soft: #fdebea;
+      --teal: #0f766e;
+      --teal-soft: #e5f5f3;
+      --shadow: 0 10px 28px rgba(23, 32, 42, 0.08);
+      font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans SC", Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    a {
+      color: var(--blue);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    .page {
+      width: min(1640px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 24px 0 36px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 18px;
+    }
+
+    .title-block {
+      display: grid;
+      gap: 6px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 24px;
+      font-weight: 750;
+      letter-spacing: 0;
+    }
+
+    .profile-line {
+      color: var(--muted);
+      max-width: 920px;
+    }
+
+    .verify-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 34px;
+      padding: 6px 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      color: var(--muted);
+      white-space: nowrap;
+      box-shadow: var(--shadow);
+    }
+
+    .verify-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--green);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .stat {
+      min-height: 82px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .stat-label {
+      color: var(--muted);
+      font-size: 12px;
+      margin-bottom: 6px;
+    }
+
+    .stat-value {
+      font-size: 26px;
+      font-weight: 760;
+      line-height: 1;
+    }
+
+    .stat-sub {
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .watch-panel {
+      padding: 14px;
+      margin-bottom: 12px;
+    }
+
+    .watch-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 12px;
+    }
+
+    .watch-header h2 {
+      margin: 0 0 5px;
+      font-size: 17px;
+      font-weight: 750;
+      letter-spacing: 0;
+    }
+
+    .watch-header p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 980px;
+    }
+
+    .watch-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .watch-item {
+      min-height: 142px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfdff;
+    }
+
+    .watch-title {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 7px;
+    }
+
+    .watch-name {
+      font-weight: 740;
+      overflow-wrap: anywhere;
+    }
+
+    .watch-meta {
+      display: grid;
+      gap: 4px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .watch-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .mini-link {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 5px 8px;
+      border: 1px solid var(--line-strong);
+      border-radius: 6px;
+      background: #fff;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    .filters {
+      padding: 14px;
+      margin-bottom: 12px;
+    }
+
+    .filter-grid {
+      display: grid;
+      grid-template-columns: 1.5fr repeat(6, minmax(130px, 1fr)) 150px 150px;
+      gap: 10px;
+      align-items: end;
+    }
+
+    .field {
+      display: grid;
+      gap: 5px;
+      min-width: 0;
+    }
+
+    .field label {
+      color: var(--muted);
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    .control {
+      width: 100%;
+      min-height: 38px;
+      border: 1px solid var(--line-strong);
+      border-radius: 6px;
+      background: #fff;
+      color: var(--text);
+      padding: 8px 9px;
+      outline: none;
+    }
+
+    .control:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(31, 111, 235, 0.14);
+    }
+
+    .toolbar-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 12px;
+      flex-wrap: wrap;
+    }
+
+    .salary-row,
+    .quick-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .check {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--muted);
+      min-height: 34px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 36px;
+      border: 1px solid var(--line-strong);
+      border-radius: 6px;
+      background: #fff;
+      color: var(--text);
+      padding: 8px 11px;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .btn:hover {
+      border-color: var(--blue);
+      color: var(--blue);
+    }
+
+    .btn.primary {
+      border-color: var(--blue);
+      background: var(--blue);
+      color: #fff;
+    }
+
+    .btn.danger {
+      border-color: #f2b8b5;
+      background: var(--red-soft);
+      color: var(--red);
+      width: 40px;
+      padding: 0;
+      font-weight: 800;
+    }
+
+    .table-shell {
+      overflow: auto;
+      border-radius: 8px;
+    }
+
+    table {
+      width: 100%;
+      min-width: 1740px;
+      border-collapse: collapse;
+      background: var(--surface);
+    }
+
+    thead th {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      background: #f0f4f9;
+      color: #344153;
+      border-bottom: 1px solid var(--line-strong);
+      font-size: 12px;
+      font-weight: 700;
+      text-align: left;
+      padding: 10px 8px;
+      vertical-align: bottom;
+      white-space: nowrap;
+    }
+
+    tbody td {
+      border-bottom: 1px solid var(--line);
+      padding: 10px 8px;
+      vertical-align: top;
+      min-width: 0;
+    }
+
+    tbody tr:hover {
+      background: #fbfdff;
+    }
+
+    .w-bank { width: 150px; }
+    .w-nature { width: 96px; }
+    .w-type { width: 170px; }
+    .w-role { width: 170px; }
+    .w-city { width: 86px; }
+    .w-location { width: 150px; }
+    .w-date { width: 104px; }
+    .w-link { width: 112px; }
+    .w-written { width: 86px; }
+    .w-written-detail { width: 190px; }
+    .w-salary { width: 170px; }
+    .w-match { width: 170px; }
+    .w-risk { width: 170px; }
+    .w-status { width: 112px; }
+    .w-note { width: 210px; }
+    .w-source { width: 150px; }
+    .w-action { width: 56px; }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .strong {
+      font-weight: 700;
+    }
+
+    .tag-row {
+      display: flex;
+      gap: 5px;
+      flex-wrap: wrap;
+      margin-top: 6px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 22px;
+      max-width: 100%;
+      padding: 2px 7px;
+      border-radius: 999px;
+      font-size: 12px;
+      line-height: 1.25;
+      border: 1px solid transparent;
+      white-space: normal;
+    }
+
+    .tag.blue {
+      color: #1857b6;
+      background: var(--blue-soft);
+      border-color: #cfe0ff;
+    }
+
+    .tag.green {
+      color: var(--green);
+      background: var(--green-soft);
+      border-color: #c5ead8;
+    }
+
+    .tag.amber {
+      color: var(--amber);
+      background: var(--amber-soft);
+      border-color: #f4d79a;
+    }
+
+    .tag.red {
+      color: var(--red);
+      background: var(--red-soft);
+      border-color: #f3c4c1;
+    }
+
+    .tag.teal {
+      color: var(--teal);
+      background: var(--teal-soft);
+      border-color: #bde5df;
+    }
+
+    .cell-main {
+      font-weight: 700;
+      overflow-wrap: anywhere;
+    }
+
+    .cell-sub {
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 4px;
+      overflow-wrap: anywhere;
+    }
+
+    .date-pair {
+      display: grid;
+      gap: 4px;
+    }
+
+    .date-end {
+      font-weight: 700;
+    }
+
+    .note {
+      min-width: 190px;
+      min-height: 78px;
+      resize: vertical;
+    }
+
+    .status-select {
+      min-width: 96px;
+    }
+
+    .empty {
+      display: none;
+      padding: 30px 16px;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .source-date {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 5px;
+    }
+
+    .past-link {
+      display: inline-flex;
+      margin-top: 6px;
+      font-size: 12px;
+    }
+
+    .risk-low {
+      color: var(--green);
+    }
+
+    .risk-mid {
+      color: var(--amber);
+    }
+
+    .risk-high {
+      color: var(--red);
+    }
+
+    @media (max-width: 1180px) {
+      .stats {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .watch-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .filter-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 760px) {
+      .page {
+        width: min(100% - 20px, 720px);
+        padding-top: 16px;
+      }
+
+      .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .watch-header {
+        flex-direction: column;
+      }
+
+      h1 {
+        font-size: 21px;
+      }
+
+      .verify-badge {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .watch-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .filter-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .toolbar-row,
+      .salary-row,
+      .quick-row {
+        align-items: stretch;
+      }
+
+      .salary-row > *,
+      .quick-row > * {
+        flex: 1 1 150px;
+      }
+
+      table,
+      tbody,
+      tr,
+      td {
+        display: block;
+        width: 100%;
+        min-width: 0;
+      }
+
+      table {
+        background: transparent;
+      }
+
+      thead {
+        display: none;
+      }
+
+      tbody {
+        display: grid;
+        gap: 10px;
+      }
+
+      tbody tr {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--surface);
+        overflow: hidden;
+      }
+
+      tbody td {
+        display: grid;
+        grid-template-columns: 118px minmax(0, 1fr);
+        gap: 10px;
+        border-bottom: 1px solid var(--line);
+        padding: 10px;
+      }
+
+      tbody td:last-child {
+        border-bottom: 0;
+      }
+
+      tbody td::before {
+        content: attr(data-label);
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .note,
+      .status-select {
+        min-width: 0;
+      }
+
+      .btn.danger {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 430px) {
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      tbody td {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="topbar" aria-label="工作台概览">
+      <div class="title-block">
+        <h1>贵州银行类岗位投递追踪工作台</h1>
+        <div class="profile-line">福建江夏学院 · 物联网工程 · 本科 2026 届 · 英语四级 · 人工智能训练师三级 · 城市优先：贵阳、遵义</div>
+      </div>
+      <div class="verify-badge"><span class="verify-dot"></span><span id="lastSyncLabel">数据同步中…</span></div>
+    </section>
+
+    <section class="stats" aria-label="统计概览">
+      <div class="stat">
+        <div class="stat-label">当前列表</div>
+        <div class="stat-value" id="statVisible">0</div>
+        <div class="stat-sub" id="statHidden">已隐藏 0</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">本年度待开启</div>
+        <div class="stat-value" id="statNotOpen">0</div>
+        <div class="stat-sub">显示校招尚未开启提示</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">往届公告参考</div>
+        <div class="stat-value" id="statPastNotice">0</div>
+        <div class="stat-sub">已截止内容仅作参考</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">科技 / 数据 / 运维</div>
+        <div class="stat-value" id="statTech">0</div>
+        <div class="stat-sub">金融科技优先</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">待投递</div>
+        <div class="stat-value" id="statTodo">0</div>
+        <div class="stat-sub">状态实时保存</div>
+      </div>
+    </section>
+
+    <section class="panel watch-panel" aria-label="本年度校招监控">
+      <div class="watch-header">
+        <div>
+          <h2>本年度校招监控</h2>
+          <p>2027 校招已陆续发布：工行、建行、中行、农行、邮储已开启网申；交行、贵州银行、贵阳银行、贵州农商尚未发布，持续监控中。</p>
+        </div>
+        <button class="btn" id="showNotOpen" type="button">只看待开启</button>
+      </div>
+      <div class="watch-grid" id="watchGrid"></div>
+    </section>
+
+    <section class="panel filters" aria-label="筛选栏">
+      <div class="filter-grid">
+        <div class="field">
+          <label for="keyword">关键词</label>
+          <input class="control" id="keyword" type="search" placeholder="单位、岗位、城市、备注">
+        </div>
+        <div class="field">
+          <label for="cityFilter">城市</label>
+          <select class="control" id="cityFilter"></select>
+        </div>
+        <div class="field">
+          <label for="natureFilter">单位性质</label>
+          <select class="control" id="natureFilter"></select>
+        </div>
+        <div class="field">
+          <label for="typeFilter">招聘类型</label>
+          <select class="control" id="typeFilter"></select>
+        </div>
+        <div class="field">
+          <label for="timelinessFilter">年度状态</label>
+          <select class="control" id="timelinessFilter">
+            <option value="">全部</option>
+            <option value="open">2027校招进行中</option>
+            <option value="not_open">本年度校招尚未开启</option>
+            <option value="historical">往届公告参考</option>
+            <option value="other">社招/补录参考</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="statusFilter">当前进度</label>
+          <select class="control" id="statusFilter"></select>
+        </div>
+        <div class="field">
+          <label for="cohortFilter">届别匹配</label>
+          <select class="control" id="cohortFilter">
+            <option value="">全部</option>
+            <option value="2026">2026 届优先</option>
+            <option value="往届">往届可报</option>
+            <option value="风险">届别风险</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="sortBy">排序</label>
+          <select class="control" id="sortBy">
+            <option value="timeliness">本年度状态优先</option>
+            <option value="deadlineAsc">截止时间由近到远</option>
+            <option value="deadlineDesc">截止时间由远到近</option>
+            <option value="cityPriority">城市优先级</option>
+            <option value="nature">单位性质</option>
+            <option value="bank">单位名称</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="expectedSalary">薪资期望/月</label>
+          <input class="control" id="expectedSalary" inputmode="numeric" placeholder="例如 7000">
+        </div>
+      </div>
+
+      <div class="toolbar-row">
+        <div class="salary-row" aria-label="薪资区间筛选">
+          <div class="field">
+            <label for="salaryMin">最低月薪</label>
+            <input class="control" id="salaryMin" inputmode="numeric" placeholder="不限">
+          </div>
+          <div class="field">
+            <label for="salaryMax">最高月薪</label>
+            <input class="control" id="salaryMax" inputmode="numeric" placeholder="不限">
+          </div>
+          <label class="check"><input id="includeUnknownSalary" type="checkbox">包含未公开薪资</label>
+        </div>
+        <div class="quick-row">
+          <button class="btn" id="clearFilters" type="button">清空筛选</button>
+          <button class="btn primary" id="exportCsv" type="button">导出 CSV</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" aria-label="岗位表格">
+      <div class="table-shell">
+        <table>
+          <thead>
+            <tr>
+              <th class="w-bank">单位名称</th>
+              <th class="w-nature">单位性质</th>
+              <th class="w-type">招聘类型</th>
+              <th class="w-role">岗位名称</th>
+              <th class="w-city">城市</th>
+              <th class="w-location">具体工作地点</th>
+              <th class="w-date">网申开始</th>
+              <th class="w-date">网申截止</th>
+              <th class="w-link">网申平台链接</th>
+              <th class="w-written">是否笔试</th>
+              <th class="w-written-detail">笔试科目/时间</th>
+              <th class="w-salary">薪资待遇</th>
+              <th class="w-match">学历/专业匹配</th>
+              <th class="w-match">届别匹配</th>
+              <th class="w-risk">销售/轮岗/倒班风险</th>
+              <th class="w-status">当前进度</th>
+              <th class="w-note">备注</th>
+              <th class="w-source">来源</th>
+              <th class="w-date">最后核验日期</th>
+              <th class="w-action">操作</th>
+            </tr>
+          </thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+      <div class="empty" id="emptyState">没有符合当前条件的岗位</div>
+    </section>
+  </main>
+
+  <script src="workbench_data.js"></script>
+  <script>
+    const STORAGE = {
+      filters: "gz-bank-workbench:filters:v1",
+      progress: "gz-bank-workbench:progress:v1",
+      deleted: "gz-bank-workbench:deleted:v1"
+    };
+
+    const STATUSES = ["待投递", "已投递", "笔试", "一面", "二面", "Offer", "拒绝", "放弃"];
+    const CITY_PRIORITY = ["贵阳", "遵义", "六盘水", "安顺", "毕节", "铜仁", "黔南", "黔东南", "黔西南"];
+    const PAST_NOTICE_LINKS = {
+      "中国工商银行贵州省分行": { label: "查看往届校招公告", url: "https://job.icbc.com.cn/pc/index.html?from=singlemessage" },
+      "中国建设银行贵州省分行": { label: "查看往届校招公告", url: "https://ehome.ccb.com/cn/job/index.html" },
+      "中国银行贵州省分行": { label: "查看往届校招公告", url: "https://www.boc.cn/aboutboc/bi4/" },
+      "中国农业银行贵州省分行": { label: "查看往届校招公告", url: "https://career.abchina.com.cn" },
+      "交通银行贵州省分行": { label: "查看往届校招公告", url: "https://job.bankcomm.com/index.do" },
+      "中国邮政储蓄银行贵州省分行": { label: "查看往届校招公告", url: "https://www.psbc.com/cn/gyyc/rczp/xyzp/index.html" },
+      "贵州银行": { label: "查看往届校招公告", url: "https://www.bgzchina.com/" },
+      "贵阳银行": { label: "查看往届校招公告", url: "https://www.bankgy.cn/" },
+      "贵州农商联合银行": { label: "查看往届校招公告", url: "https://www.gznxbank.com/html/xn9999999/rczp/index.html" }
+    };
+
+    let opportunities = [
+      {
+        id: "icbc-2027-guiyang",
+        bank: "中国工商银行贵州省分行",
+        nature: "国有大型商业银行",
+        type: "2027秋招待公告",
+        role: "科技菁英/金融科技岗",
+        city: "贵阳",
+        location: "贵阳市、贵安新区，以公告为准",
+        applyStart: "",
+        applyEnd: "",
+        link: "https://job.icbc.com.cn/pc/index.html?from=singlemessage",
+        written: "待公告",
+        writtenDetail: "公告未发布；以工行招聘站内通知为准",
+        salaryText: "未公开/按单位规定",
+        salaryMin: null,
+        salaryMax: null,
+        degreeMatch: "本科可报需以公告为准；物联网工程与科技岗相关",
+        cohortMatch: "2027秋招未发布；2026届按往届资格复查",
+        risk: "届别风险；可能省内轮岗",
+        riskLevel: "mid",
+        defaultStatus: "待投递",
+        defaultNote: "2027秋招截至核验日未见贵州正式公告，保留巡查。",
+        source: "工行招聘官网",
+        sourceUrl: "https://job.icbc.com.cn/pc/index.html?from=singlemessage",
+        lastVerified: "2026-08-14"
+      },
+      {
+        id: "icbc-2027-zunyi",
+        bank: "中国工商银行贵州省分行",
+        nature: "国有大型商业银行",
+        type: "2027秋招待公告",
+        role: "科技菁英/金融科技岗",
+        city: "遵义",
+        location: "遵义分支机构，以公告为准",
+        applyStart: "",
+        applyEnd: "",
+        link: "https://job.icbc.com.cn/pc/index.html?from=singlemessage",
+        written: "待公告",
+        writtenDetail: "公告未发布；以工行招聘站内通知为准",
+        salaryText: "未公开/按单位规定",
+        salaryMin: null,
+        salaryMax: null,
+        degreeMatch: "本科可报需以公告为准；物联网工程与科技岗相关",
+        cohortMatch: "2027秋招未发布；2026届按往届资格复查",
+        risk: "届别风险；地市分支可能轮岗",
+        riskLevel: "mid",
+        defaultStatus: "待投递",
+        defaultNote: "遵义为第二优先城市，公告发布后核对是否单列科技岗。",
+        source: "工行招聘官网",
+        sourceUrl: "https://job.icbc.com.cn/pc/index.html?from=singlemessage",
+        lastVerified: "2026-08-14"
+      },
+      {
+        id: "ccb-2027-guiyang",
+        bank: "中国建设银行贵州省分行",
+        nature: "国有大型商业银行",
+        type: "2027秋招待公告",
+        role: "科技类专项人才/园区运维",
+        city: "贵阳",
+        location: "贵阳、贵安新区科技园区，以公告为准",
+        applyStart: "",
+        applyEnd: "",
+        link: "https://ehome.ccb.com/cn/job/index.html",
+        written: "待公告",
+        writtenDetail: "公告未发布；以建行招聘站内通知为准",
+        salaryText: "未公开/按单位规定",
+        salaryMin: null,
+        salaryMax: null,
+        degreeMatch: "本科可报需以公告为准；信息科技方向匹配",
+        cohortMatch: "2027秋招未发布；2026届按往届资格复查",
+        risk: "届别风险；轮岗安排需复查",
+        riskLevel: "mid",
+        defaultStatus: "待投递",
+        defaultNote: "优先盯科技类专项人才，谨慎区分营销服务岗。",
+        source: "建行招聘官网",
+        sourceUrl: "https://ehome.ccb.com/cn/job/index.html",
+        lastVerified: "2026-08-14"
+      },
+      {
+        id: "boc-2027-guiyang",
+        bank: "中国银行贵州省分行",
+        nature: "国有大型商业银行",
+        type: "2027秋招待公告",
+        role: "信息科技岗位",
+        city: "贵阳",
+        location: "贵州省分行本部或贵阳城区机构，以公告为准",
+        applyStart: "",
+        applyEnd: "",
+        link: "https://www.boc.cn/aboutboc/bi4/",
+        written: "待公告",
+        writtenDetail: "公告未发布；以中国银行招聘公告为准",
+        salaryText: "未公开/按单位规定",
+        salaryMin: null,
+        salaryMax: null,
+        degreeMatch: "本科可报需以公告为准；物联网工程相关",
+        cohortMatch: "2027秋招未发布；2026届按往届资格复查",
+        risk: "届别风险；网点轮岗需复查",
+        riskLevel: "mid",
+        defaultStatus: "待投递",
+        defaultNote: "优先看信息科技岗位，其次看运营类备选。",
+        source: "中国银行招聘公告",
+        sourceUrl: "https://www.boc.cn/aboutboc/bi4/",
+        lastVerified: "2026-08-14"
+      },
+      {
+        id: "abc-2027-guiyang",
+        bank: "中国农业银行贵州省分行",
+        nature: "国有大型商业银行",
+        type: "2027秋招待公告",
+        role: "信息科技岗/数字化运营岗",
+        city: "贵阳",
+        location: "贵州省分行本部或贵阳城区机构，以公告为准",
+        applyStart: "",
+        applyEnd: "",
+        link: "https://career.abchina.com.cn",
+        written: "待公告",
+        writtenDetail: "公告未发布；以农行招聘站内通知为准",
+        salaryText: "未公开/按单位规定",
+        salaryMin: null,
+        salaryMax: null,
+        degreeMatch: "本科可报需以公告为准；工科与信息科技方向匹配",
+        cohortMatch: "2027秋招未发布；2026届按往届资格复查",
+        risk: "届别风险；县域/基层轮岗需复查",
+        riskLevel: "mid",
+        defaultStatus: "待投递",
+        defaultNote: "公告发布后优先筛信息科技岗，县域岗作为低优先备选。",
+        source: "农行招聘官网",
+        sourceUrl: "https://career.abchina.com.cn",
+        lastVerified: "2026-08-14"
+      },
+      {
+        id: "bankcomm-2027-guiyang",
+        bank: "交通银行贵州省分行",
+        nature: "国有大型商业银行",
+        type: "2027秋招待公告",
+        role: "金融科技方向",
+        city: "贵阳",
+        location: "贵阳城区机构，以公告为准",
+        applyStart: "",
+        applyEnd: "",
+        link: "https://job.bankcomm.com/index.do",
+        written: "待公告",
+        writtenDetail: "公告未发布；以交行招聘站内通知为准",
+        salaryText: "未公开/按单位规定",
+        salaryMin: null,
+        salaryMax: null,
+        degreeMatch: "本科可报需以公告为准；金融科技方向匹配",
+        cohortMatch: "2027秋招未发布；2026届按往届资格复查",
+        risk: "届别风险；营运轮岗需复查",
+        riskLevel: "mid",
+        defaultStatus: "待投递",
+        defaultNote: "优先金融科技方向，营运方向仅作备选。",
+        source: "交行招聘官网",
+        sourceUrl: "https://job.bankcomm.com/index.do",
+        lastVerified: "2026-08-14"
+      },
+      {
+        id: "psbc-2027-guiyang",
+        bank: "中国邮政储蓄银行贵州省分行",
+        nature: "国有大型商业银行",
+        type: "2027秋招待公告",
+        role: "金融科技/信息科技类",
+        city: "贵阳",
+        location: "贵州省分行本部或贵阳城区机构，以公告为准",
+        applyStart: "",
+        applyEnd: "",
+        link: "https://www.psbc.com/cn/gyyc/rczp/xyzp/index.html",
+        written: "待公告",
+        writtenDetail: "公告未发布；以邮储招聘公告为准",
+        salaryText: "未公开/按单位规定",
+        salaryMin: null,
+        salaryMax: null,
+        degreeMatch: "本科可报需以公告为准；信息科技方向匹配",
+        cohortMatch: "2027秋招未发布；2026届按往届资格复查",
+        risk: "届别风险；销售类岗位需剔除",
+        riskLevel: "mid",
+        defaultStatus: "待投递",
+        defaultNote: "若岗位名含金融销售或客户经理主销售，直接排除。",
+        source: "邮储校园招聘",
+        sourceUrl: "https://www.psbc.com/cn/gyyc/rczp/xyzp/index.html",
+        lastVerified: "2026-08-14"
+      },
+      {
+        id: "bgz-2027-guiyang",
+        bank: "贵州银行",
+        nature: "省属城市商业银行",
+        type: "2027秋招待公告",
+        role: "总行金融科技/数据岗",
+        city: "贵阳",
+        location: "贵阳市，以公告为准",
+        applyStart: "",
+        applyEnd: "",
+        link: "https://www.bgzchina.com/",
+        written: "待公告",
+        writtenDetail: "公告未发布；以贵州银行官网人才招聘为准",
+        salaryText: "未公开/按单位规定",
+        salaryMin: null,
+        salaryMax: null,
+        degreeMatch: "本科可报需以公告为准；数据、系统、智能运营方向匹配",
+        cohortMatch: "2027秋招未发布；2026届按往届资格复查",
+        risk: "届别风险；基层轮岗需复查",
+        riskLevel: "mid",
+        defaultStatus: "待投递",
+        defaultNote: "本地城商行重点关注总行科技和数据岗位。",
+        source: "贵州银行官网",
+        sourceUrl: "https://www.bgzchina.com/",
+        lastVerified: "2026-08-14"
+      },
+      {
+        id: "bankgy-2027-guiyang",
+        bank: "贵阳银行",
+        nature: "城市商业银行",
+        type: "2027秋招待公告",
+        role: "金融科技类/信息科技岗",
+        city: "贵阳",
+        location: "贵阳城区、贵安新区，以公告为准",
+        applyStart: "",
+        applyEnd: "",
+        link: "https://www.bankgy.cn/",
+        written: "待公告",
+        writtenDetail: "公告未发布；以贵阳银行官网人才招聘为准",
+        salaryText: "未公开/按单位规定",
+        salaryMin: null,
+        salaryMax: null,
+        degreeMatch: "本科可报需以公告为准；物联网工程与科技岗相关",
+        cohortMatch: "2027秋招未发布；2026届按往届资格复查",
+        risk: "届别风险；运营轮岗需复查",
+        riskLevel: "mid",
+        defaultStatus: "待投递",
+        defaultNote: "贵阳本地优先级高，公告发布后核对岗位类别。",
+        source: "贵阳银行官网",
+        sourceUrl: "https://www.bankgy.cn/",
+        lastVerified: "2026-08-14"
+      },
+      {
+        id: "gznx-2027-guiyang",
+        bank: "贵州农商联合银行",
+        nature: "省级农商联合银行",
+        type: "2027秋招待公告",
+        role: "省联社信息科技/数据治理岗",
+        city: "贵阳",
+        location: "贵阳市，以公告为准",
+        applyStart: "",
+        applyEnd: "",
+        link: "https://www.gznxbank.com/html/xn9999999/rczp/index.html",
+        written: "待公告",
+        writtenDetail: "公告未发布；以人才招聘栏目为准",
+        salaryText: "未公开/按单位规定",
+        salaryMin: null,
+        salaryMax: null,
+        degreeMatch: "本科可报需以公告为准；信息科技方向匹配",
+        cohortMatch: "2027秋招未发布；2026届按往届资格复查",
+        risk: "届别风险；基层服务期需复查",
+        riskLevel: "mid",
+        defaultStatus: "待投递",
+        defaultNote: "省联社科技岗优先，县域农商行岗需看地点。",
+        source: "贵州农商联合银行人才招聘",
+        sourceUrl: "https://www.gznxbank.com/html/xn9999999/rczp/index.html",
+        lastVerified: "2026-08-14"
+      },
+      {
+        id: "icbc-2026-autumn-guiyang",
+        bank: "中国工商银行贵州省分行",
+        nature: "国有大型商业银行",
+        type: "2026届秋招",
+        role: "科技菁英",
+        city: "贵阳",
+        location: "贵阳市、贵安新区分支机构",
+        applyStart: "2025-09-05",
+        applyEnd: "2025-10-10",
+        link: "https://job.icbc.com.cn/pc/index.html?from=singlemessage",
+        written: "是",
+        writtenDetail: "笔试科目和时间以站内通知为准",
+        salaryText: "未公开/按单位规定",
+        salaryMin: null,
+        salaryMax: null,
+        degreeMatch: "本科可报；物联网工程与科技菁英较匹配",
+        cohortMatch: "2026届匹配",
+        risk: "低；需复查是否安排支行轮岗",
+        riskLevel: "low",
+        defaultStatus: "待投递",
+        defaultNote: "已截止，作为补录/后续批次参照。",
+        source: "工行招聘官网",
+        sourceUrl: "https://job.icbc.com.cn/pc/index.html?from=singlemessage",
+        lastVerified: "2026-08-14"
+      },
+      {
+        id: "icbc-2026-autumn-zunyi",
+        bank: "中国工商银行贵州省分行",
+        nature: "国有大型商业银行",
+        type: "2026届秋招",
+        role: "科技菁英",
+        city: "遵义",
+        location: "遵义分支机构",
+        applyStart: "2025-09-05",
+        applyEnd: "2025-10-10",
+        link: "https://job.icbc.com.cn/pc/index.html?from=singlemessage",
+        written: "是",
+        writtenDetail: "笔试科目和时间以站内通知为准",
+        salaryText: "未公开/按单位规定",
+        salaryMin: null,
+        salaryMax: null,
+        degreeMatch: "本科可报；物联网工程与科技菁英较匹配",
+        cohortMatch: "2026届匹配",
+        risk: "中；地市机构可能轮岗",
+        riskLevel: "mid",
+        defaultStatus: "待投递",
+        defaultNote: "遵义优先级高，后续补录可重点看。",
+        source: "工行招聘官网",
+        sourceUrl: "https://job.icbc.com.cn/pc/index.html?from=singlemessage",
+        lastVerified: "2026-08-14"
+      },
+      {
+        id: "icbc-2026-autumn-anshun",
+        bank: "中国工商银行贵州省分行",
+        nature: "国有大型商业银行",
+        type: "2026届秋招",
+        role: "科技菁英",
+        city: "安顺",
+        location: "安顺分支机构",
+        applyStart: "2025-09-05",
+        applyEnd: "2025-10-10",
+        link: "https://job.icbc.com.cn/pc/index.html?from=singlemessage",
+        written: "是",
+        writtenDetail: "笔试科目和时间以站内通知为准",
+        salaryText: "未公开/按单位规定",
+        salaryMin: null,
+        salaryMax: null,
+        degreeMatch: "本科可报；物联网工程与科技菁英较匹配",
+        cohortMatch: "2026届匹配",
+        risk: "中；地市轮岗和网点安排需复查",
+        riskLevel: "mid",
+        defaultStatus: "待投递",
+        defaultNote: "省内补充城市。",
+        source: "工行招聘官网",
+        sourceUrl: "https://job.icbc.com.cn/pc/index.html?from=singlemessage",
+        lastVerified: "2026-08-14"
+      },
+      {
+        id: "icbc-2026-autumn-bijie",
+        bank: "中国工商银行贵州省分行",
+        nature: "国有大型商业银行",
+        type: "2026届秋招",
+        role: "科技菁英",
+        city: "毕节",
+        location: "毕节分支机构",
+        applyStart: "2025-09-05",
+        applyEnd: "2025-10-10",
+        link: "https://job.icbc.com.cn/pc/index.html?from=singlemessage",
+        written: "是",
+        writtenDetail: "笔试科目和时间以站内通知为准",
+        salaryText: "未公开/按单位规定",
+        salaryMin: null,
+        salaryMax: null,
+        degreeMatch: "本科可报；物联网工程与科技菁英较匹配",
+        cohortMatch: "2026届匹配",
+        risk: "中；地市轮岗和网点安排需复查",
+        riskLevel: "mid",
+        defaultStatus: "待投递",
+        defaultNote: "省内补充城市。",
+        source: "工行招聘官网",
+        sourceUrl: "https://job.icbc.com.cn/pc/index.html?from=singlemessage",
+        lastVerified: "2026-08-14"
+      },
+      {
+        id: "icbc-2026-autumn-tongren",
+        bank: "中国工商银行贵州省分行",
+        nature: "国有大型商业银行",
+        type: "2026届秋招",
+        role: "科技菁英",
+        city: "铜仁",
+        location: "铜仁分支机构",
+        applyStart: "2025-09-05",
+        applyEnd: "2025-10-10",
+        link: "https://job.icbc.com.cn/pc/index.html?from=singlemessage",
+        written: "是",
+        writtenDetail: "笔试科目和时间以站内通知为准",
+        salaryText: "未公开/按单位规定",
+        salaryMin: null,
+        salaryMax: null,
+        degreeMatch: "本科可报；物联网工程与科技菁英较匹配",
+        cohortMatch: "2026届匹配",
+        risk: "中；地市轮岗和网点安排需复查",
+        riskLevel: "mid",
+        defaultStatus: "待投递",
+        defaultNote: "省内补充城市。",
+        source: "工行招聘官网",
+        sourceUrl: "https://job.icbc.com.cn/pc/index.html?from=singlemessage",
+        lastVerified: "2026-08-14"
+      },
+      {
+        id: "ccb-2026-autumn-guiyang",
+        bank: "中国建设银行贵州省分行",
+        nature: "国有大型商业银行",
+        type: "2026届秋招",
+        role: "科技类专项人才",
+        city: "贵阳",
+        location: "贵阳、贵安新区科技园区",
+        applyStart: "2025-09-05",
+        applyEnd: "2025-10-09",
+        link: "https://ehome.ccb.com/cn/job/index.html",
+        written: "是",
+        writtenDetail: "笔试科目和时间以站内通知为准",
+        salaryText: "未公开/按单位规定",
+        salaryMin: null,
+        salaryMax: null,
+        degreeMatch: "本科可报；科技类专项人才与专业匹配",
+        cohortMatch: "2026届匹配",
+        risk: "低；营销属性较弱，轮岗需复查",
+        riskLevel: "low",
+        defaultStatus: "待投递",
+        defaultNote: "建行科技类优先级高。",
+        source: "建行招聘官网",
+        sourceUrl: "https://ehome.ccb.com/cn/job/index.html",
+        lastVerified: "2026-08-14"
+      },
+      {
+        id: "ccb-2026-autumn-zunyi",
+        bank: "中国建设银行贵州省分行",
+        nature: "国有大型商业银行",
+        type: "2026届秋招",
+        role: "综合业务岗",
+        city: "遵义",
+        location: "遵义分支机构",
+        applyStart: "2025-09-05",
+        applyEnd: "2025-10-09",
+        link: "https://ehome.ccb.com/cn/job/index.html",
+        written: "是",
+        writtenDetail: "笔试科目和时间以站内通知为准",
+        salaryText: "未公开/按单位规定",
+        salaryMin: null,
+        salaryMax: null,
+        degreeMatch: "本科可报；专业相关度一般，作为运营备选",
+        cohortMatch: "2026届匹配",
+        risk: "中；基层轮岗和营销协同需复查",
+        riskLevel: "mid",
+        defaultStatus: "待投递",
+        defaultNote: "非科技岗，只有在地点和稳定性合适时考虑。",
+        source: "建行招聘官网",
+        sourceUrl: "https://ehome.ccb.com/cn/job/index.html",
+        lastVerified: "2026-08-14"
+      },
+      {
+        id: "ccb-2026-autumn-bijie",
+        bank: "中国建设银行贵州省分行",
+        nature: "国有大型商业银行",
+        type: "2026届秋招",
+        role: "综合业务岗",
+        city: "毕节",
+        location: "毕节分支机构",
+        applyStart: "2025-09-05",
+        applyEnd: "2025-10-09",
+        link: "https://ehome.ccb.com/cn/job/index.html",
+        written: "是",
+        writtenDetail: "笔试科目和时间以站内通知为准",
+        salaryText: "未公开/按单位规定",
+        salaryMin: null,
+        salaryMax: null,
+        degreeMatch: "本科可报；专业相关度一般，作为运营备选",
+        cohortMatch: "2026届匹配",
+        risk: "中；基层轮岗和营销协同需复查",
+        riskLevel: "mid",
+        defaultStatus: "待投递",
+        defaultNote: "省内补充城市。",
+        source: "建行招聘官网",
+        sourceUrl: "https://ehome.ccb.com/cn/job/index.html",
+        lastVerified: "2026-08-14"
+      },
+      {
+        id: "abc-2026-autumn-guiyang",
+        bank: "中国农业银行贵州省分行",
+        nature: "国有大型商业银行",
+        type: "2026届秋招",
+        role: "信息科技岗",
+        city: "贵阳",
+        location: "贵州省分行本部或贵阳城区机构",
+        applyStart: "2025-09-05",
+        applyEnd: "2025-10-09",
+        link: "https://career.abchina.com.cn",
+        written: "是",
+        writtenDetail: "笔试科目和时间以站内通知为准",
+        salaryText: "未公开/按单位规定",
+        salaryMin: null,
+        salaryMax: null,
+        degreeMatch: "本科可报；信息科技岗与物联网工程匹配",
+        cohortMatch: "2026届匹配",
+        risk: "低；需复查是否分配到基层轮岗",
+        riskLevel: "low",
+        defaultStatus: "待投递",
+        defaultNote: "科技岗优先级高。",
+        source: "农行招聘官网",
+        sourceUrl: "https://career.abchina.com.cn",
+        lastVerified: "2026-08-14"
+      },
+      {
+        id: "abc-2026-autumn-zunyi",
+        bank: "中国农业银行贵州省分行",
+        nature: "国有大型商业银行",
+        type: "2026届秋招",
+        role: "城区综合业务岗",
+        city: "遵义",
+        location: "遵义城区机构",
+        applyStart: "2025-09-05",
+        applyEnd: "2025-10-09",
+        link: "https://career.abchina.com.cn",
+        written: "是",
+        writtenDetail: "笔试科目和时间以站内通知为准",
+        salaryText: "未公开/按单位规定",
+        salaryMin: null,
+        salaryMax: null,
+        degreeMatch: "本科可报；专业相关度一般，运营备选",
+        cohortMatch: "2026届匹配",
+        risk: "中；基层轮岗、柜面和营销协同需复查",
+        riskLevel: "mid",
+        defaultStatus: "待投递",
+        defaultNote: "遵义可作为地点优先备选。",
+        source: "农行招聘官网",
+        sourceUrl: "https://career.abchina.com.cn",
+        lastVerified: "2026-08-14"
+      },
+      {
+        id: "abc-2026-autumn-qiannan",
+        bank: "中国农业银行贵州省分行",
+        nature: "国有大型商业银行",
+        type: "2026届秋招",
+        role: "县域综合业务岗",
+        city: "黔南",
+        location: "黔南州县域机构",
+        applyStart: "2025-09-05",
+        applyEnd: "2025-10-09",
+        link: "https://career.abchina.com.cn",
+        written: "是",
+        writtenDetail: "笔试科目和时间以站内通知为准",
+        salaryText: "未公开/按单位规定",
+        salaryMin: null,
+        salaryMax: null,
+        degreeMatch: "本科可报；专业相关度一般，县域运营备选",
+        cohortMatch: "2026届匹配",
+        risk: "高；县域网点、基层服务期和营销协同需复查",
+        riskLevel: "high",
+        defaultStatus: "待投递",
+        defaultNote: "只在接受县域地点时考虑。",
+        source: "农行招聘官网",
+        sourceUrl: "https://career.abchina.com.cn",
+        lastVerified: "2026-08-14"
+      },
+      {
+        id: "boc-2026-autumn-guiyang",
+        bank: "中国银行贵州省分行",
+        nature: "国有大型商业银行",
+        type: "2026届秋招",
+        role: "信息科技岗位",
+        city: "贵阳",
+        location: "贵州省分行本部或贵阳城区机构",
+        applyStart: "2025-09-05",
+        applyEnd: "2025-10-14",
+        link: "https://www.boc.cn/aboutboc/bi4/",
+        written: "是",
+        writtenDetail: "笔试科目和时间以招聘流程通知为准",
+        salaryText: "未公开/按单位规定",
+        salaryMin: null,
+        salaryMax: null,
+        degreeMatch: "本科可报；信息科技岗位与专业匹配",
+        cohortMatch: "2026届匹配",
+        risk: "低；需复查培养轮岗安排",
+        riskLevel: "low",
+        defaultStatus: "待投递",
+        defaultNote: "中行科技岗优先级高。",
+        source: "中国银行招聘公告",
+        sourceUrl: "https://www.boc.cn/aboutboc/bi4/",
+        lastVerified: "2026-08-14"
+      },
+      {
+        id: "boc-2026-autumn-zunyi",
+        bank: "中国银行贵州省分行",
+        nature: "国有大型商业银行",
+        type: "2026届秋招",
+        role: "营业网点业务岗",
+        city: "遵义",
+        location: "遵义分支机构",
+        applyStart: "2025-09-05",
+        applyEnd: "2025-10-14",
+        link: "https://www.boc.cn/aboutboc/bi4/",
+        written: "是",
+        writtenDetail: "笔试科目和时间以招聘流程通知为准",
+        salaryText: "未公开/按单位规定",
+        salaryMin: null,
+        salaryMax: null,
+        degreeMatch: "本科可报；专业相关度一般，运营备选",
+        cohortMatch: "2026届匹配",
+        risk: "中；柜面、轮岗和营销协同需复查",
+        riskLevel: "mid",
+        defaultStatus: "待投递",
+        defaultNote: "地点优先，但岗位性质需面试前问清。",
+        source: "中国银行招聘公告",
+        sourceUrl: "https://www.boc.cn/aboutboc/bi4/",
+        lastVerified: "2026-08-14"
+      },
+      {
+        id: "bankcomm-2026-autumn-guiyang",
+        bank: "交通银行贵州省分行",
+        nature: "国有大型商业银行",
+        type: "2026届秋招",
+        role: "金融科技方向",
+        city: "贵阳",
+        location: "贵阳城区机构",
+        applyStart: "2025-09-05",
+        applyEnd: "2025-10-12",
+        link: "https://job.bankcomm.com/index.do",
+        written: "是",
+        writtenDetail: "笔试科目和时间以站内通知为准",
+        salaryText: "未公开/按单位规定",
+        salaryMin: null,
+        salaryMax: null,
+        degreeMatch: "本科可报；金融科技方向与专业匹配",
+        cohortMatch: "2026届匹配",
+        risk: "低；需复查是否统一培养轮岗",
+        riskLevel: "low",
+        defaultStatus: "待投递",
+        defaultNote: "交行金融科技方向优先。",
+        source: "交行招聘官网",
+        sourceUrl: "https://job.bankcomm.com/index.do",
+        lastVerified: "2026-08-14"
+      },
+      {
+        id: "bankcomm-2026-autumn-zunyi",
+        bank: "交通银行贵州省分行",
+        nature: "国有大型商业银行",
+        type: "2026届秋招",
+        role: "营运方向",
+        city: "遵义",
+        location: "遵义分支机构，以公告为准",
+        applyStart: "2025-09-05",
+        applyEnd: "2025-10-12",
+        link: "https://job.bankcomm.com/index.do",
+        written: "是",
+        writtenDetail: "笔试科目和时间以站内通知为准",
+        salaryText: "未公开/按单位规定",
+        salaryMin: null,
+        salaryMax: null,
+        degreeMatch: "本科可报；专业相关度一般，运营备选",
+        cohortMatch: "2026届匹配",
+        risk: "中；营运轮岗、柜面和营销协同需复查",
+        riskLevel: "mid",
+        defaultStatus: "待投递",
+        defaultNote: "非科技岗，作为遵义地点备选。",
+        source: "交行招聘官网",
+        sourceUrl: "https://job.bankcomm.com/index.do",
+        lastVerified: "2026-08-14"
+      },
+      {
+        id: "bankgy-2026-campus-fintech",
+        bank: "贵阳银行",
+        nature: "城市商业银行",
+        type: "2026春季校园招聘",
+        role: "金融科技类/信息科技岗",
+        city: "贵阳",
+        location: "贵阳、贵安新区，以公告为准",
+        applyStart: "2026-03-17",
+        applyEnd: "2026-03-29",
+        link: "https://www.bankgy.cn/",
+        written: "是",
+        writtenDetail: "笔试科目和时间以公告及短信通知为准",
+        salaryText: "未公开/按单位规定",
+        salaryMin: null,
+        salaryMax: null,
+        degreeMatch: "本科可报需复查；科技类与专业匹配",
+        cohortMatch: "2026届优先，是否放宽往届需复查",
+        risk: "低；轮岗安排需复查",
+        riskLevel: "low",
+        defaultStatus: "待投递",
+        defaultNote: "已截止，留作春招节奏和补录参照。",
+        source: "贵阳银行官网",
+        sourceUrl: "https://www.bankgy.cn/",
+        lastVerified: "2026-08-14"
+      },
+      {
+        id: "bankgy-2026-campus-ops",
+        bank: "贵阳银行",
+        nature: "城市商业银行",
+        type: "2026春季校园招聘",
+        role: "运营支持/综合业务岗",
+        city: "贵阳",
+        location: "贵阳城区网点或运营中心，以公告为准",
+        applyStart: "2026-03-17",
+        applyEnd: "2026-03-29",
+        link: "https://www.bankgy.cn/",
+        written: "是",
+        writtenDetail: "笔试科目和时间以公告及短信通知为准",
+        salaryText: "未公开/按单位规定",
+        salaryMin: null,
+        salaryMax: null,
+        degreeMatch: "本科可报需复查；专业相关度一般，运营备选",
+        cohortMatch: "2026届优先，是否放宽往届需复查",
+        risk: "中；柜面、轮岗和营销协同需复查",
+        riskLevel: "mid",
+        defaultStatus: "待投递",
+        defaultNote: "贵阳地点友好，岗位属性需细问。",
+        source: "贵阳银行官网",
+        sourceUrl: "https://www.bankgy.cn/",
+        lastVerified: "2026-08-14"
+      },
+      {
+        id: "bgz-2026-renbo-fintech",
+        bank: "贵州银行",
+        nature: "省属城市商业银行",
+        type: "2026人博会春季招聘",
+        role: "信息科技/系统开发岗",
+        city: "贵阳",
+        location: "贵州银行总行或科技部门，以公告为准",
+        applyStart: "2026-04-21",
+        applyEnd: "2026-05-07",
+        link: "https://www.bgzchina.com/",
+        written: "待通知",
+        writtenDetail: "招聘流程和笔试安排以官网公告为准",
+        salaryText: "未公开/按单位规定",
+        salaryMin: null,
+        salaryMax: null,
+        degreeMatch: "本科可报需复查；系统开发与物联网工程相关",
+        cohortMatch: "往届/社招口径需复查，2026届经验要求风险",
+        risk: "中；社招经验要求和轮岗需复查",
+        riskLevel: "mid",
+        defaultStatus: "待投递",
+        defaultNote: "若要求工作经验，2026届应降优先级。",
+        source: "贵州银行官网",
+        sourceUrl: "https://www.bgzchina.com/",
+        lastVerified: "2026-08-14"
+      },
+      {
+        id: "bgz-2026-renbo-data",
+        bank: "贵州银行",
+        nature: "省属城市商业银行",
+        type: "2026人博会春季招聘",
+        role: "数据分析/智能运营岗",
+        city: "贵阳",
+        location: "贵州银行总行或运营管理部门，以公告为准",
+        applyStart: "2026-04-21",
+        applyEnd: "2026-05-07",
+        link: "https://www.bgzchina.com/",
+        written: "待通知",
+        writtenDetail: "招聘流程和笔试安排以官网公告为准",
+        salaryText: "未公开/按单位规定",
+        salaryMin: null,
+        salaryMax: null,
+        degreeMatch: "本科可报需复查；AI训练师证书对智能运营有辅助匹配",
+        cohortMatch: "往届/社招口径需复查，2026届经验要求风险",
+        risk: "中；社招经验要求和岗位边界需复查",
+        riskLevel: "mid",
+        defaultStatus: "待投递",
+        defaultNote: "可重点包装数据标注、模型评测和业务流程优化经历。",
+        source: "贵州银行官网",
+        sourceUrl: "https://www.bgzchina.com/",
+        lastVerified: "2026-08-14"
+      },
+      {
+        id: "gznx-2026-social-it",
+        bank: "贵州农商联合银行",
+        nature: "省级农商联合银行",
+        type: "2026第二批社会招聘",
+        role: "信息科技/系统运维类岗位",
+        city: "贵阳",
+        location: "贵阳市；具体岗位以附件明细为准",
+        applyStart: "2026-07-02",
+        applyEnd: "2026-07-15",
+        link: "https://www.gznxbank.com/html/xn9999999/rczp/index.html",
+        written: "待通知",
+        writtenDetail: "公告未披露具体科目；后续以短信或邮件通知为准",
+        salaryText: "未公开/按单位规定",
+        salaryMin: null,
+        salaryMax: null,
+        degreeMatch: "本科可报需核对附件；信息科技方向匹配",
+        cohortMatch: "社招口径，2026届经验要求风险",
+        risk: "中；社招经验要求、服务地点和轮岗需复查",
+        riskLevel: "mid",
+        defaultStatus: "待投递",
+        defaultNote: "官网公告显示第二批社招7个岗位，附件明细需再次核对。",
+        source: "贵州农商联合银行人才招聘",
+        sourceUrl: "https://www.gznxbank.com/html/xn9999999/rczp/index.html",
+        lastVerified: "2026-08-14"
+      }
+    ];
+    // 优先使用同步脚本生成的最新数据；外部文件缺失时回退到内嵌数据
+    if (window.OPPORTUNITIES && window.OPPORTUNITIES.length) {
+      opportunities = window.OPPORTUNITIES;
+    }
+
+    const state = {
+      filters: readJson(STORAGE.filters, {
+        keyword: "",
+        city: "",
+        nature: "",
+        type: "",
+        timeliness: "",
+        status: "",
+        cohort: "",
+        sortBy: "timeliness",
+        expectedSalary: "",
+        salaryMin: "",
+        salaryMax: "",
+        includeUnknownSalary: true
+      }),
+      progress: readJson(STORAGE.progress, {}),
+      deleted: readJson(STORAGE.deleted, {})
+    };
+
+    const els = {
+      watchGrid: document.getElementById("watchGrid"),
+      rows: document.getElementById("rows"),
+      empty: document.getElementById("emptyState"),
+      keyword: document.getElementById("keyword"),
+      cityFilter: document.getElementById("cityFilter"),
+      natureFilter: document.getElementById("natureFilter"),
+      typeFilter: document.getElementById("typeFilter"),
+      timelinessFilter: document.getElementById("timelinessFilter"),
+      statusFilter: document.getElementById("statusFilter"),
+      cohortFilter: document.getElementById("cohortFilter"),
+      sortBy: document.getElementById("sortBy"),
+      expectedSalary: document.getElementById("expectedSalary"),
+      salaryMin: document.getElementById("salaryMin"),
+      salaryMax: document.getElementById("salaryMax"),
+      includeUnknownSalary: document.getElementById("includeUnknownSalary"),
+      showNotOpen: document.getElementById("showNotOpen"),
+      clearFilters: document.getElementById("clearFilters"),
+      exportCsv: document.getElementById("exportCsv"),
+      statVisible: document.getElementById("statVisible"),
+      statHidden: document.getElementById("statHidden"),
+      statNotOpen: document.getElementById("statNotOpen"),
+      statPastNotice: document.getElementById("statPastNotice"),
+      statTech: document.getElementById("statTech"),
+      statTodo: document.getElementById("statTodo")
+    };
+
+    init();
+
+    function init() {
+      const meta = window.WORKBENCH_META || {};
+      const syncLabel = document.getElementById("lastSyncLabel");
+      if (syncLabel) {
+        syncLabel.textContent = meta.lastSync ? ("数据同步：" + meta.lastSync) : "数据同步：—";
+      }
+      buildSelect(els.cityFilter, "全部", uniqueValues("city", CITY_PRIORITY));
+      buildSelect(els.natureFilter, "全部", uniqueValues("nature"));
+      buildSelect(els.typeFilter, "全部", uniqueValues("type"));
+      buildSelect(els.statusFilter, "全部", STATUSES);
+      hydrateFilters();
+      bindEvents();
+      render();
+    }
+
+    function readJson(key, fallback) {
+      try {
+        const raw = localStorage.getItem(key);
+        return raw ? JSON.parse(raw) : fallback;
+      } catch (error) {
+        return fallback;
+      }
+    }
+
+    function writeJson(key, value) {
+      localStorage.setItem(key, JSON.stringify(value));
+    }
+
+    function uniqueValues(field, preferredOrder = []) {
+      const values = [...new Set(opportunities.map(item => item[field]).filter(Boolean))];
+      return values.sort((a, b) => {
+        const ai = preferredOrder.indexOf(a);
+        const bi = preferredOrder.indexOf(b);
+        if (ai !== -1 || bi !== -1) {
+          return (ai === -1 ? 99 : ai) - (bi === -1 ? 99 : bi);
+        }
+        return a.localeCompare(b, "zh-Hans-CN");
+      });
+    }
+
+    function buildSelect(select, allLabel, values) {
+      select.innerHTML = `<option value="">${allLabel}</option>` + values.map(value => `<option value="${escapeHtml(value)}">${escapeHtml(value)}</option>`).join("");
+    }
+
+    function hydrateFilters() {
+      els.keyword.value = state.filters.keyword || "";
+      els.cityFilter.value = state.filters.city || "";
+      els.natureFilter.value = state.filters.nature || "";
+      els.typeFilter.value = state.filters.type || "";
+      els.timelinessFilter.value = state.filters.timeliness || "";
+      els.statusFilter.value = state.filters.status || "";
+      els.cohortFilter.value = state.filters.cohort || "";
+      els.sortBy.value = state.filters.sortBy || "timeliness";
+      els.expectedSalary.value = state.filters.expectedSalary || "";
+      els.salaryMin.value = state.filters.salaryMin || "";
+      els.salaryMax.value = state.filters.salaryMax || "";
+      els.includeUnknownSalary.checked = state.filters.includeUnknownSalary !== false;
+    }
+
+    function bindEvents() {
+      [
+        ["keyword", "keyword"],
+        ["cityFilter", "city"],
+        ["natureFilter", "nature"],
+        ["typeFilter", "type"],
+        ["timelinessFilter", "timeliness"],
+        ["statusFilter", "status"],
+        ["cohortFilter", "cohort"],
+        ["sortBy", "sortBy"],
+        ["expectedSalary", "expectedSalary"],
+        ["salaryMin", "salaryMin"],
+        ["salaryMax", "salaryMax"]
+      ].forEach(([id, key]) => {
+        els[id].addEventListener("input", () => {
+          state.filters[key] = els[id].value.trim();
+          saveFiltersAndRender();
+        });
+      });
+
+      els.includeUnknownSalary.addEventListener("change", () => {
+        state.filters.includeUnknownSalary = els.includeUnknownSalary.checked;
+        saveFiltersAndRender();
+      });
+
+      els.showNotOpen.addEventListener("click", () => {
+        state.filters.timeliness = "not_open";
+        state.filters.sortBy = "timeliness";
+        hydrateFilters();
+        saveFiltersAndRender();
+      });
+
+      els.clearFilters.addEventListener("click", () => {
+        state.filters = {
+          keyword: "",
+          city: "",
+          nature: "",
+          type: "",
+          timeliness: "",
+          status: "",
+          cohort: "",
+          sortBy: "timeliness",
+          expectedSalary: state.filters.expectedSalary || "",
+          salaryMin: "",
+          salaryMax: "",
+          includeUnknownSalary: true
+        };
+        hydrateFilters();
+        saveFiltersAndRender();
+      });
+
+      els.exportCsv.addEventListener("click", exportVisibleCsv);
+    }
+
+    function saveFiltersAndRender() {
+      writeJson(STORAGE.filters, state.filters);
+      render();
+    }
+
+    function getRowState(item) {
+      const saved = state.progress[item.id] || {};
+      return {
+        status: saved.status || item.defaultStatus || "待投递",
+        note: saved.note ?? item.defaultNote ?? ""
+      };
+    }
+
+    function setRowState(id, patch) {
+      state.progress[id] = { ...(state.progress[id] || {}), ...patch };
+      writeJson(STORAGE.progress, state.progress);
+      render();
+    }
+
+    function visibleItems() {
+      const filters = state.filters;
+      const keyword = (filters.keyword || "").toLowerCase();
+      const minSalary = parseNumber(filters.salaryMin);
+      const maxSalary = parseNumber(filters.salaryMax);
+
+      return opportunities
+        .filter(item => !state.deleted[item.id])
+        .filter(item => {
+          const rowState = getRowState(item);
+          if (filters.city && item.city !== filters.city) return false;
+          if (filters.nature && item.nature !== filters.nature) return false;
+          if (filters.type && item.type !== filters.type) return false;
+          if (filters.timeliness && getTimeliness(item).value !== filters.timeliness) return false;
+          if (filters.status && rowState.status !== filters.status) return false;
+          if (filters.cohort && !item.cohortMatch.includes(filters.cohort)) return false;
+          if (!matchesSalary(item, minSalary, maxSalary, filters.includeUnknownSalary !== false)) return false;
+          if (keyword && !searchBlob(item, rowState).includes(keyword)) return false;
+          return true;
+        })
+        .sort(sorter(filters.sortBy || "deadlineAsc"));
+    }
+
+    function parseNumber(value) {
+      const number = Number(String(value || "").replace(/[^\d.]/g, ""));
+      return Number.isFinite(number) && number > 0 ? number : null;
+    }
+
+    function matchesSalary(item, minSalary, maxSalary, includeUnknown) {
+      const hasSalary = Number.isFinite(item.salaryMin) && Number.isFinite(item.salaryMax);
+      if (!hasSalary) return includeUnknown;
+      if (minSalary && item.salaryMax < minSalary) return false;
+      if (maxSalary && item.salaryMin > maxSalary) return false;
+      return true;
+    }
+
+    function getTimeliness(item) {
+      const t = item.type || "";
+      if (t.includes("2027") && !t.includes("待公告")) {
+        return { value: "open", label: "2027校招进行中", color: "green", rank: 0 };
+      }
+      if (t.includes("2027") || t.includes("待公告")) {
+        return { value: "not_open", label: "本年度校招尚未开启", color: "amber", rank: 1 };
+      }
+      if (/校招|校园招聘|2026届秋招/.test(t)) {
+        return { value: "historical", label: "往届校招公告参考", color: "teal", rank: 2 };
+      }
+      return { value: "other", label: "社招/补录公告参考", color: "blue", rank: 3 };
+    }
+
+    function getPastNotice(item) {
+      return PAST_NOTICE_LINKS[item.bank] || { label: "查看往届公告/入口", url: item.sourceUrl };
+    }
+
+    function searchBlob(item, rowState) {
+      const timeliness = getTimeliness(item);
+      const pastNotice = getPastNotice(item);
+      return [
+        item.bank,
+        item.nature,
+        item.type,
+        timeliness.label,
+        item.role,
+        item.city,
+        item.location,
+        item.writtenDetail,
+        item.salaryText,
+        item.degreeMatch,
+        item.cohortMatch,
+        item.risk,
+        rowState.status,
+        rowState.note,
+        item.source,
+        pastNotice.label
+      ].join(" ").toLowerCase();
+    }
+
+    function sorter(sortBy) {
+      return (a, b) => {
+        if (sortBy === "timeliness") return compareTimeliness(a, b) || compareCity(a, b) || compareDeadline(a, b) || a.bank.localeCompare(b.bank, "zh-Hans-CN");
+        if (sortBy === "deadlineDesc") return compareDeadline(b, a) || compareCity(a, b) || a.bank.localeCompare(b.bank, "zh-Hans-CN");
+        if (sortBy === "cityPriority") return compareCity(a, b) || compareDeadline(a, b) || a.bank.localeCompare(b.bank, "zh-Hans-CN");
+        if (sortBy === "nature") return a.nature.localeCompare(b.nature, "zh-Hans-CN") || compareDeadline(a, b);
+        if (sortBy === "bank") return a.bank.localeCompare(b.bank, "zh-Hans-CN") || compareDeadline(a, b);
+        return compareDeadline(a, b) || compareCity(a, b) || a.bank.localeCompare(b.bank, "zh-Hans-CN");
+      };
+    }
+
+    function compareTimeliness(a, b) {
+      return getTimeliness(a).rank - getTimeliness(b).rank;
+    }
+
+    function compareDeadline(a, b) {
+      const ad = dateValue(a.applyEnd);
+      const bd = dateValue(b.applyEnd);
+      return ad - bd;
+    }
+
+    function dateValue(value) {
+      if (!value) return Number.MAX_SAFE_INTEGER;
+      const time = new Date(`${value}T23:59:59`).getTime();
+      return Number.isFinite(time) ? time : Number.MAX_SAFE_INTEGER;
+    }
+
+    function compareCity(a, b) {
+      return cityRank(a.city) - cityRank(b.city);
+    }
+
+    function cityRank(city) {
+      const index = CITY_PRIORITY.indexOf(city);
+      return index === -1 ? 99 : index;
+    }
+
+    function render() {
+      const items = visibleItems();
+      renderWatchGrid();
+      renderStats(items);
+      els.rows.innerHTML = items.map(renderRow).join("");
+      els.empty.style.display = items.length ? "none" : "block";
+      bindRowEvents();
+    }
+
+    function renderWatchGrid() {
+      const watchMap = new Map();
+      opportunities
+        .filter(item => getTimeliness(item).value === "not_open")
+        .forEach(item => {
+          if (!watchMap.has(item.bank)) {
+            watchMap.set(item.bank, {
+              bank: item.bank,
+              nature: item.nature,
+              cities: new Set(),
+              link: item.link,
+              lastVerified: item.lastVerified,
+              pastNotice: getPastNotice(item)
+            });
+          }
+          watchMap.get(item.bank).cities.add(item.city);
+        });
+
+      const cards = [...watchMap.values()].sort((a, b) => a.bank.localeCompare(b.bank, "zh-Hans-CN"));
+      els.watchGrid.innerHTML = cards.map(card => {
+        const cities = [...card.cities].sort((a, b) => cityRank(a) - cityRank(b)).join("、");
+        return `
+          <article class="watch-item">
+            <div class="watch-title">
+              <div class="watch-name">${escapeHtml(card.bank)}</div>
+              <span class="tag amber">本年度校招尚未开启</span>
+            </div>
+            <div class="watch-meta">
+              <div>单位性质：${escapeHtml(card.nature)}</div>
+              <div>重点城市：${escapeHtml(cities)}</div>
+              <div>最后核验：${escapeHtml(card.lastVerified)}</div>
+            </div>
+            <div class="watch-actions">
+              <a class="mini-link" href="${escapeAttr(card.link)}" target="_blank" rel="noopener">官方招聘入口</a>
+              <a class="mini-link" href="${escapeAttr(card.pastNotice.url)}" target="_blank" rel="noopener">${escapeHtml(card.pastNotice.label)}</a>
+            </div>
+          </article>
+        `;
+      }).join("");
+    }
+
+    function renderStats(items) {
+      const hiddenCount = Object.keys(state.deleted).filter(id => state.deleted[id]).length;
+      els.statVisible.textContent = items.length;
+      els.statHidden.textContent = `已隐藏 ${hiddenCount}`;
+      els.statNotOpen.textContent = items.filter(item => getTimeliness(item).value === "not_open").length;
+      els.statPastNotice.textContent = items.filter(item => getTimeliness(item).value === "historical").length;
+      els.statTech.textContent = items.filter(item => /科技|数据|运维|智能|金融科技/.test(item.role)).length;
+      els.statTodo.textContent = items.filter(item => getRowState(item).status === "待投递").length;
+    }
+
+    function renderRow(item) {
+      const rowState = getRowState(item);
+      const timeliness = getTimeliness(item);
+      const deadlineClass = item.applyEnd ? "date-end" : "date-end muted";
+      const riskClass = item.riskLevel === "high" ? "red" : item.riskLevel === "low" ? "green" : "amber";
+      const statusOptions = STATUSES.map(status => `<option value="${status}" ${status === rowState.status ? "selected" : ""}>${status}</option>`).join("");
+
+      return `
+        <tr data-id="${escapeHtml(item.id)}">
+          <td data-label="单位名称" class="w-bank">
+            <div class="cell-main">${escapeHtml(item.bank)}</div>
+            <div class="tag-row">${renderCityTag(item.city)}${renderStatusTag(rowState.status)}</div>
+          </td>
+          <td data-label="单位性质" class="w-nature">${escapeHtml(item.nature)}</td>
+          <td data-label="招聘类型" class="w-type">
+            <div class="cell-main">${escapeHtml(item.type)}</div>
+            <div class="tag-row"><span class="tag ${timeliness.color}">${escapeHtml(timeliness.label)}</span></div>
+            ${renderPastNoticeLink(item)}
+          </td>
+          <td data-label="岗位名称" class="w-role">
+            <div class="cell-main">${escapeHtml(item.role)}</div>
+            <div class="cell-sub">${escapeHtml(item.id)}</div>
+          </td>
+          <td data-label="城市" class="w-city">${escapeHtml(item.city)}</td>
+          <td data-label="具体工作地点" class="w-location">${escapeHtml(item.location)}</td>
+          <td data-label="网申开始" class="w-date">${formatDate(item.applyStart)}</td>
+          <td data-label="网申截止" class="w-date"><span class="${deadlineClass}">${formatDate(item.applyEnd)}</span></td>
+          <td data-label="网申平台链接" class="w-link"><a href="${escapeAttr(item.link)}" target="_blank" rel="noopener">查看公告</a></td>
+          <td data-label="是否笔试" class="w-written">${escapeHtml(item.written)}</td>
+          <td data-label="笔试科目/时间" class="w-written-detail">${escapeHtml(item.writtenDetail)}</td>
+          <td data-label="薪资待遇" class="w-salary">${escapeHtml(item.salaryText)}${salaryExpectationHint(item)}</td>
+          <td data-label="学历/专业匹配" class="w-match">${escapeHtml(item.degreeMatch)}</td>
+          <td data-label="届别匹配" class="w-match">${escapeHtml(item.cohortMatch)}</td>
+          <td data-label="销售/轮岗/倒班风险" class="w-risk"><span class="tag ${riskClass}">${escapeHtml(item.risk)}</span></td>
+          <td data-label="当前进度" class="w-status">
+            <select class="control status-select" data-action="status" data-id="${escapeHtml(item.id)}">${statusOptions}</select>
+          </td>
+          <td data-label="备注" class="w-note">
+            <textarea class="control note" data-action="note" data-id="${escapeHtml(item.id)}">${escapeHtml(rowState.note)}</textarea>
+          </td>
+          <td data-label="来源" class="w-source">
+            <a href="${escapeAttr(item.sourceUrl)}" target="_blank" rel="noopener">${escapeHtml(item.source)}</a>
+            <span class="source-date">来源优先级：官方/准官方</span>
+          </td>
+          <td data-label="最后核验日期" class="w-date">${(item.type || "").includes("2027") ? escapeHtml(item.lastVerified) : "历史参考"}</td>
+          <td data-label="操作" class="w-action"><button class="btn danger" type="button" data-action="delete" data-id="${escapeHtml(item.id)}" title="删除">×</button></td>
+        </tr>
+      `;
+    }
+
+    function renderCityTag(city) {
+      const color = ["贵阳", "遵义"].includes(city) ? "blue" : "teal";
+      return `<span class="tag ${color}">${escapeHtml(city)}</span>`;
+    }
+
+    function renderStatusTag(status) {
+      const color = status === "Offer" ? "green" : ["拒绝", "放弃"].includes(status) ? "red" : status === "待投递" ? "amber" : "blue";
+      return `<span class="tag ${color}">${escapeHtml(status)}</span>`;
+    }
+
+    function renderPastNoticeLink(item) {
+      const pastNotice = getPastNotice(item);
+      return `<a class="past-link" href="${escapeAttr(pastNotice.url)}" target="_blank" rel="noopener">${escapeHtml(pastNotice.label)}</a>`;
+    }
+
+    function salaryExpectationHint(item) {
+      const expected = parseNumber(state.filters.expectedSalary);
+      const hasSalary = Number.isFinite(item.salaryMin) && Number.isFinite(item.salaryMax);
+      if (!expected || !hasSalary) return "";
+      return item.salaryMax >= expected
+        ? `<div class="cell-sub risk-low">覆盖期望 ${expected} 元</div>`
+        : `<div class="cell-sub risk-high">低于期望 ${expected} 元</div>`;
+    }
+
+    function formatDate(value) {
+      return value || "待公告";
+    }
+
+    function bindRowEvents() {
+      els.rows.querySelectorAll("[data-action='status']").forEach(select => {
+        select.addEventListener("change", event => {
+          setRowState(event.target.dataset.id, { status: event.target.value });
+        });
+      });
+
+      els.rows.querySelectorAll("[data-action='note']").forEach(textarea => {
+        textarea.addEventListener("input", event => {
+          const id = event.target.dataset.id;
+          state.progress[id] = { ...(state.progress[id] || {}), note: event.target.value };
+          writeJson(STORAGE.progress, state.progress);
+        });
+      });
+
+      els.rows.querySelectorAll("[data-action='delete']").forEach(button => {
+        button.addEventListener("click", event => {
+          const id = event.currentTarget.dataset.id;
+          state.deleted[id] = true;
+          writeJson(STORAGE.deleted, state.deleted);
+          render();
+        });
+      });
+    }
+
+    function exportVisibleCsv() {
+      const headers = [
+        "单位名称", "单位性质", "招聘类型", "年度状态", "岗位名称", "城市", "具体工作地点", "网申开始/截止时间", "网申平台链接",
+        "是否笔试", "笔试科目/时间", "薪资待遇", "学历/专业匹配", "届别匹配", "销售/轮岗/倒班风险", "当前进度",
+        "备注", "来源", "往届公告入口", "最后核验日期"
+      ];
+      const rows = visibleItems().map(item => {
+        const rowState = getRowState(item);
+        const timeliness = getTimeliness(item);
+        const pastNotice = getPastNotice(item);
+        return [
+          item.bank,
+          item.nature,
+          item.type,
+          timeliness.label,
+          item.role,
+          item.city,
+          item.location,
+          `${formatDate(item.applyStart)} / ${formatDate(item.applyEnd)}`,
+          item.link,
+          item.written,
+          item.writtenDetail,
+          item.salaryText,
+          item.degreeMatch,
+          item.cohortMatch,
+          item.risk,
+          rowState.status,
+          rowState.note,
+          item.sourceUrl,
+          pastNotice.url,
+          item.lastVerified
+        ];
+      });
+      const csv = [headers, ...rows].map(row => row.map(csvCell).join(",")).join("\n");
+      const blob = new Blob(["\ufeff" + csv], { type: "text/csv;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "guizhou_bank_applications.csv";
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    function csvCell(value) {
+      const text = String(value ?? "");
+      return `"${text.replace(/"/g, '""')}"`;
+    }
+
+    function escapeHtml(value) {
+      return String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    function escapeAttr(value) {
+      return escapeHtml(value).replace(/`/g, "&#096;");
+    }
+  </script>
+</body>
+</html>
