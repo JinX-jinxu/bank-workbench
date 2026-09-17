@@ -180,7 +180,7 @@ window.OPPORTUNITIES = [
     "defaultNote": "贵州2027校招公告9/7发布，网申截止10/7；信息科技相关岗位以岗位页面学历要求为准。",
     "source": "邮储校园招聘",
     "sourceUrl": "https://www.psbc.com/cn/gyyc/rczp/xyzp/202609/t20260907_460394.html",
-    "lastVerified": "2026-09-08"
+    "lastVerified": "2026-09-17"
   },
   {
     "id": "bgz-2027-guiyang",
@@ -783,8 +783,8 @@ window.OPPORTUNITIES = [
 ];
 
 window.WORKBENCH_META = {
-  "verifiedDate": "2026-09-08",
-  "lastSync": "2026-09-08 13:29",
+  "verifiedDate": "2026-09-17",
+  "lastSync": "2026-09-17 12:25",
   "sources": [
     {
       "bank": "中国工商银行贵州省分行",
@@ -793,7 +793,7 @@ window.WORKBENCH_META = {
       "page": "校招公告",
       "mode": "agent",
       "status": "agent",
-      "fetchedAt": "2026-09-08 13:29",
+      "fetchedAt": "2026-09-17 12:25",
       "announcements": []
     },
     {
@@ -813,7 +813,7 @@ window.WORKBENCH_META = {
       "page": "招聘公告",
       "mode": "html",
       "status": "ok",
-      "fetchedAt": "2026-09-08 13:29",
+      "fetchedAt": "2026-09-17 12:25",
       "announcements": [
         {
           "title": "关联交易公告",
@@ -826,6 +826,12 @@ window.WORKBENCH_META = {
           "date": "",
           "url": "https://www.boc.cn/aboutboc/bi7/",
           "relevant": false
+        },
+        {
+          "title": "中国银行博士后科研工作站2027年度博士后研究人员招收公告",
+          "date": "2026-09-10",
+          "url": "https://www.boc.cn/aboutboc/bi4/202609/t20260910_25691580.html",
+          "relevant": true
         },
         {
           "title": "中国银行股份有限公司2027年全球校园招聘公告",
@@ -880,12 +886,6 @@ window.WORKBENCH_META = {
           "date": "2025-07-25",
           "url": "https://www.boc.cn/aboutboc/bi4/202507/t20250725_25429728.html",
           "relevant": false
-        },
-        {
-          "title": "中国银行2025年社会招聘公告",
-          "date": "2025-07-02",
-          "url": "https://www.boc.cn/aboutboc/bi4/202507/t20250702_25401883.html",
-          "relevant": false
         }
       ]
     },
@@ -896,7 +896,7 @@ window.WORKBENCH_META = {
       "page": "招聘公告",
       "mode": "agent",
       "status": "agent",
-      "fetchedAt": "2026-09-08 13:29",
+      "fetchedAt": "2026-09-17 12:25",
       "announcements": []
     },
     {
@@ -916,7 +916,7 @@ window.WORKBENCH_META = {
       "page": "校园招聘公告",
       "mode": "html",
       "status": "ok",
-      "fetchedAt": "2026-09-08 13:29",
+      "fetchedAt": "2026-09-17 12:25",
       "announcements": [
         {
           "title": "文化活动公告",
@@ -928,60 +928,6 @@ window.WORKBENCH_META = {
           "title": "中国邮政储蓄银行2027年度校园招聘公告",
           "date": "2026-09-07",
           "url": "https://www.psbc.com/cn/gyyc/rczp/xyzp/202609/t20260907_460394.html",
-          "relevant": true
-        },
-        {
-          "title": "中国邮政储蓄银行总行2023年暑期实习生计划招聘公告",
-          "date": "2023-06-02",
-          "url": "https://www.psbc.com/cn/gyyc/rczp/xyzp/202306/t20230602_204324.html",
-          "relevant": false
-        },
-        {
-          "title": "中国邮政储蓄银行总行2022年信息科技招聘公告",
-          "date": "2022-02-21",
-          "url": "https://www.psbc.com/cn/gyyc/zygg/202202/t20220221_165844.html",
-          "relevant": false
-        },
-        {
-          "title": "中国邮政储蓄银行2022年度校园招聘公告",
-          "date": "2021-08-26",
-          "url": "https://www.psbc.com/cn/gyyc/rczp/xyzp/202108/t20210826_119964.html",
-          "relevant": true
-        },
-        {
-          "title": "中国邮政储蓄银行总行2021年信息科技招聘公告",
-          "date": "2021-03-15",
-          "url": "https://www.psbc.com/cn/gyyc/rczp/xyzp/202103/t20210315_67983.html",
-          "relevant": false
-        },
-        {
-          "title": "邮惠万家银行2021年校园招聘和社会招聘公告",
-          "date": "2021-01-06",
-          "url": "https://www.psbc.com/cn/gyyc/zygg/202101/t20210106_64183.html",
-          "relevant": true
-        },
-        {
-          "title": "中国邮政储蓄银行2021年度校园招聘公告",
-          "date": "2020-10-26",
-          "url": "https://www.psbc.com/cn/gyyc/rczp/xyzp/202010/t20201026_33319.html",
-          "relevant": true
-        },
-        {
-          "title": "中国邮政储蓄银行信用卡中心2020年春季校园招聘公告",
-          "date": "2020-10-26",
-          "url": "https://www.psbc.com/cn/gyyc/rczp/xyzp/202010/t20201026_33318.html",
-          "relevant": true
-        },
-        {
-          "title": "中国邮政储蓄银行总行2020年信息科技部门春季校园和暑期实习生招聘公告",
-          "date": "2020-10-26",
-          "url": "https://www.psbc.com/cn/gyyc/rczp/xyzp/202010/t20201026_33317.html",
-          "relevant": false
-        },
-        {
-          "title": "中国邮政储蓄银行2020年校园招聘公告",
-          "date": "2020-10-26",
-          "url": "https://www.psbc.com/cn/gyyc/rczp/xyzp/202010/t20201026_33316.html",
           "relevant": true
         }
       ]
@@ -1003,7 +949,7 @@ window.WORKBENCH_META = {
       "page": "通知公告",
       "mode": "agent",
       "status": "agent",
-      "fetchedAt": "2026-09-08 13:29",
+      "fetchedAt": "2026-09-17 12:25",
       "announcements": []
     },
     {
@@ -1013,78 +959,78 @@ window.WORKBENCH_META = {
       "page": "人才招聘",
       "mode": "html",
       "status": "ok",
-      "fetchedAt": "2026-09-08 13:29",
+      "fetchedAt": "2026-09-17 12:25",
       "announcements": [
+        {
+          "title": "贵州农商联合银行2026年第二批社会招聘拟录用人员名单公示",
+          "date": "2026-09-14",
+          "url": "https://www.gznxbank.com/html/xn9999999/detail/60_18788.html?timestampNoCache=2026092570546383041",
+          "relevant": false
+        },
         {
           "title": "贵州农商联合银行党委关于拟招录人员任职公示",
           "date": "2026-08-30",
-          "url": "https://www.gznxbank.com/html/xn9999999/detail/60_18786.html?timestampNoCache=2026082420711831058",
+          "url": "https://www.gznxbank.com/html/xn9999999/detail/60_18786.html?timestampNoCache=2026092570546383041",
           "relevant": false
         },
         {
           "title": "贵州农商联合银行2026年第二批社会招聘综合成绩及体检、考察通告",
           "date": "2026-08-04",
-          "url": "https://www.gznxbank.com/html/xn9999999/detail/60_18760.html?timestampNoCache=2026082420711831058",
+          "url": "https://www.gznxbank.com/html/xn9999999/detail/60_18760.html?timestampNoCache=2026092570546383041",
           "relevant": false
         },
         {
           "title": "贵州农商联合银行2026年第二批社会招聘面试通告",
           "date": "2026-07-29",
-          "url": "https://www.gznxbank.com/html/xn9999999/detail/60_18758.html?timestampNoCache=2026082420711832058",
+          "url": "https://www.gznxbank.com/html/xn9999999/detail/60_18758.html?timestampNoCache=2026092570546383041",
           "relevant": false
         },
         {
           "title": "贵州农商联合银行2026年第二批社会招聘资格复审递补通告",
           "date": "2026-07-28",
-          "url": "https://www.gznxbank.com/html/xn9999999/detail/60_18757.html?timestampNoCache=2026082420711832058",
+          "url": "https://www.gznxbank.com/html/xn9999999/detail/60_18757.html?timestampNoCache=2026092570546383041",
           "relevant": false
         },
         {
           "title": "贵州农商联合银行2026年第二批社会招聘资格复审通告",
           "date": "2026-07-23",
-          "url": "https://www.gznxbank.com/html/xn9999999/detail/60_18754.html?timestampNoCache=2026082420711832058",
+          "url": "https://www.gznxbank.com/html/xn9999999/detail/60_18754.html?timestampNoCache=2026092570546383041",
           "relevant": false
         },
         {
           "title": "贵州农商联合银行2026年第二批社会招聘笔试查分及有关事宜的通告",
           "date": "2026-07-20",
-          "url": "https://www.gznxbank.com/html/xn9999999/detail/60_18750.html?timestampNoCache=2026082420711832058",
+          "url": "https://www.gznxbank.com/html/xn9999999/detail/60_18750.html?timestampNoCache=2026092570546383041",
           "relevant": false
         },
         {
           "title": "贵州农商联合银行关于2026年第二批社会招聘笔试相关事项的通告",
           "date": "2026-07-15",
-          "url": "https://www.gznxbank.com/html/xn9999999/detail/60_18749.html?timestampNoCache=2026082420711832058",
+          "url": "https://www.gznxbank.com/html/xn9999999/detail/60_18749.html?timestampNoCache=2026092570546384041",
           "relevant": false
         },
         {
           "title": "贵州农商联合银行2026年第一批社会招聘拟录用人员名单公示",
           "date": "2026-07-07",
-          "url": "https://www.gznxbank.com/html/xn9999999/detail/60_18748.html?timestampNoCache=2026082420711832058",
+          "url": "https://www.gznxbank.com/html/xn9999999/detail/60_18748.html?timestampNoCache=2026092570546384041",
           "relevant": false
         },
         {
           "title": "贵州农商联合银行2026年第二批社会招聘简章",
           "date": "2026-07-02",
-          "url": "https://www.gznxbank.com/html/xn9999999/detail/60_18745.html?timestampNoCache=2026082420711832058",
+          "url": "https://www.gznxbank.com/html/xn9999999/detail/60_18745.html?timestampNoCache=2026092570546384041",
           "relevant": false
         },
         {
           "title": "贵州农商联合银行北京高校、香港专项引才拟录用人员名单公示",
           "date": "2026-06-24",
-          "url": "https://www.gznxbank.com/html/xn9999999/detail/60_18744.html?timestampNoCache=2026082420711832058",
+          "url": "https://www.gznxbank.com/html/xn9999999/detail/60_18744.html?timestampNoCache=2026092570546384041",
           "relevant": false
         },
         {
           "title": "贵州农商联合银行党委关于拟招录人员任职公示",
           "date": "2026-06-08",
-          "url": "https://www.gznxbank.com/html/xn9999999/detail/60_18741.html?timestampNoCache=2026082420711832058",
-          "relevant": false
-        },
-        {
-          "title": "贵州农商联合银行2026年度定向部分高校选调优秀毕业生体检通告",
-          "date": "2026-06-01",
-          "url": "https://www.gznxbank.com/html/xn9999999/detail/60_18737.html?timestampNoCache=2026082420711833058",
+          "url": "https://www.gznxbank.com/html/xn9999999/detail/60_18741.html?timestampNoCache=2026092570546384041",
           "relevant": false
         }
       ]
@@ -1096,7 +1042,7 @@ window.WORKBENCH_META = {
       "page": "机构公告与岗位",
       "mode": "agent",
       "status": "agent",
-      "fetchedAt": "2026-09-08 13:29",
+      "fetchedAt": "2026-09-17 12:25",
       "announcements": []
     },
     {
@@ -1106,7 +1052,7 @@ window.WORKBENCH_META = {
       "page": "招聘公告",
       "mode": "agent",
       "status": "agent",
-      "fetchedAt": "2026-09-08 13:29",
+      "fetchedAt": "2026-09-17 12:25",
       "announcements": []
     },
     {
@@ -1116,7 +1062,7 @@ window.WORKBENCH_META = {
       "page": "人才招聘",
       "mode": "html",
       "status": "ok",
-      "fetchedAt": "2026-09-08 13:29",
+      "fetchedAt": "2026-09-17 12:25",
       "announcements": [
         {
           "title": "个人借款合同公示",
