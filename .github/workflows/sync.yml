@@ -1,0 +1,38 @@
+name: daily-sync
+
+on:
+  schedule:
+    - cron: '0 0 * * *'   # 每天 08:00（北京时间）自动同步官网数据
+  workflow_dispatch:      # 也支持在 Actions 页面手动触发
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    env:
+      TZ: Asia/Shanghai
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Run sync script
+        run: python sync_bank_recruit.py
+
+      - name: Commit and push
+        run: |
+          git config user.name "workbench-sync-bot"
+          git config user.email "workbench-sync-bot@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "本次同步无数据变化"
+          else
+            git commit -m "sync: 每日数据同步 $(date '+%Y-%m-%d %H:%M')"
+            git push
+          fi
