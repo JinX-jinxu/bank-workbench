@@ -180,7 +180,7 @@ window.OPPORTUNITIES = [
     "defaultNote": "贵州2027校招公告9/7发布，网申截止10/7；信息科技相关岗位以岗位页面学历要求为准。",
     "source": "邮储校园招聘",
     "sourceUrl": "https://www.psbc.com/cn/gyyc/rczp/xyzp/202609/t20260907_460394.html",
-    "lastVerified": "2026-09-22"
+    "lastVerified": "2026-09-23"
   },
   {
     "id": "bgz-2027-guiyang",
@@ -783,8 +783,8 @@ window.OPPORTUNITIES = [
 ];
 
 window.WORKBENCH_META = {
-  "verifiedDate": "2026-09-22",
-  "lastSync": "2026-09-22 11:14",
+  "verifiedDate": "2026-09-23",
+  "lastSync": "2026-09-23 11:14",
   "sources": [
     {
       "bank": "中国工商银行贵州省分行",
@@ -793,7 +793,7 @@ window.WORKBENCH_META = {
       "page": "校招公告",
       "mode": "agent",
       "status": "agent",
-      "fetchedAt": "2026-09-22 11:14",
+      "fetchedAt": "2026-09-23 11:14",
       "announcements": []
     },
     {
@@ -813,7 +813,7 @@ window.WORKBENCH_META = {
       "page": "招聘公告",
       "mode": "html",
       "status": "ok",
-      "fetchedAt": "2026-09-22 11:14",
+      "fetchedAt": "2026-09-23 11:14",
       "announcements": [
         {
           "title": "关联交易公告",
@@ -896,7 +896,7 @@ window.WORKBENCH_META = {
       "page": "招聘公告",
       "mode": "agent",
       "status": "agent",
-      "fetchedAt": "2026-09-22 11:14",
+      "fetchedAt": "2026-09-23 11:14",
       "announcements": []
     },
     {
@@ -916,7 +916,7 @@ window.WORKBENCH_META = {
       "page": "校园招聘公告",
       "mode": "html",
       "status": "ok",
-      "fetchedAt": "2026-09-22 11:14",
+      "fetchedAt": "2026-09-23 11:14",
       "announcements": [
         {
           "title": "文化活动公告",
@@ -949,7 +949,7 @@ window.WORKBENCH_META = {
       "page": "通知公告",
       "mode": "agent",
       "status": "agent",
-      "fetchedAt": "2026-09-22 11:14",
+      "fetchedAt": "2026-09-23 11:14",
       "announcements": []
     },
     {
@@ -959,7 +959,7 @@ window.WORKBENCH_META = {
       "page": "人才招聘",
       "mode": "html",
       "status": "ok",
-      "fetchedAt": "2026-09-22 11:14",
+      "fetchedAt": "2026-09-23 11:14",
       "announcements": [
         {
           "title": "贵州农商联合银行2026年第二批社会招聘拟录用人员名单公示",
@@ -1042,7 +1042,7 @@ window.WORKBENCH_META = {
       "page": "机构公告与岗位",
       "mode": "agent",
       "status": "agent",
-      "fetchedAt": "2026-09-22 11:14",
+      "fetchedAt": "2026-09-23 11:14",
       "announcements": []
     },
     {
@@ -1052,7 +1052,7 @@ window.WORKBENCH_META = {
       "page": "招聘公告",
       "mode": "agent",
       "status": "agent",
-      "fetchedAt": "2026-09-22 11:14",
+      "fetchedAt": "2026-09-23 11:14",
       "announcements": []
     },
     {
@@ -1062,7 +1062,7 @@ window.WORKBENCH_META = {
       "page": "人才招聘",
       "mode": "html",
       "status": "ok",
-      "fetchedAt": "2026-09-22 11:14",
+      "fetchedAt": "2026-09-23 11:14",
       "announcements": [
         {
           "title": "个人借款合同公示",
@@ -1075,6 +1075,12 @@ window.WORKBENCH_META = {
           "date": "",
           "url": "https://www.bgzchina.com/article/category/c26",
           "relevant": false
+        },
+        {
+          "title": "贵州银行2027年度校园招聘公告",
+          "date": "2026-09-22",
+          "url": "https://www.bgzchina.com/article/86907",
+          "relevant": true
         },
         {
           "title": "贵州银行2026年金融科技相关岗位招聘公告",
@@ -1122,12 +1128,6 @@ window.WORKBENCH_META = {
           "title": "贵州银行2025年定向部分高校选调优秀毕业生素质测评公告",
           "date": "2024-12-05",
           "url": "https://www.bgzchina.com/article/84670",
-          "relevant": false
-        },
-        {
-          "title": "贵州银行2024年春季招聘公告",
-          "date": "2024-04-24",
-          "url": "https://www.bgzchina.com/article/83895",
           "relevant": false
         }
       ]
