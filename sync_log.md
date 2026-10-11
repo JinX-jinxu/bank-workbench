@@ -339,3 +339,15 @@
 - 贵阳银行：SPA 站点，需搜索补查（保留上次列表）
 - 贵州农商联合银行：抓取 12 条公告（https://www.gznxbank.com/html/xn9999999/rczp/index.html）
 
+## 2026-10-11 11:54 官网同步
+
+- 中国工商银行贵州省分行：SPA 站点，需搜索补查（保留上次列表）
+- 中国建设银行贵州省分行：SPA 站点，需搜索补查（保留上次列表）
+- 中国银行贵州省分行：抓取 12 条公告（https://www.boc.cn/aboutboc/bi4/）
+- 中国农业银行贵州省分行：SPA 站点，需搜索补查（保留上次列表）
+- 交通银行贵州省分行：SPA 站点，需搜索补查（保留上次列表）
+- 中国邮政储蓄银行贵州省分行：抓取 1 条公告（https://www.psbc.com/cn/gyyc/rczp/xyzp/index.html）
+- 贵州银行：抓取失败：<urlopen error [Errno 101] Network is unreachable>
+- 贵阳银行：SPA 站点，需搜索补查（保留上次列表）
+- 贵州农商联合银行：抓取 12 条公告（https://www.gznxbank.com/html/xn9999999/rczp/index.html）
+
