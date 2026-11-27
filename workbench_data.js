@@ -180,7 +180,7 @@ window.OPPORTUNITIES = [
     "defaultNote": "贵州2027校招公告9/7发布，网申截止10/7；信息科技相关岗位以岗位页面学历要求为准。",
     "source": "邮储校园招聘",
     "sourceUrl": "https://www.psbc.com/cn/gyyc/rczp/xyzp/202609/t20260907_460394.html",
-    "lastVerified": "2026-11-26"
+    "lastVerified": "2026-11-27"
   },
   {
     "id": "bgz-2027-guiyang",
@@ -783,8 +783,8 @@ window.OPPORTUNITIES = [
 ];
 
 window.WORKBENCH_META = {
-  "verifiedDate": "2026-11-26",
-  "lastSync": "2026-11-26 14:47",
+  "verifiedDate": "2026-11-27",
+  "lastSync": "2026-11-27 14:39",
   "sources": [
     {
       "bank": "中国工商银行贵州省分行",
@@ -793,7 +793,7 @@ window.WORKBENCH_META = {
       "page": "校招公告",
       "mode": "agent",
       "status": "agent",
-      "fetchedAt": "2026-11-26 14:47",
+      "fetchedAt": "2026-11-27 14:39",
       "announcements": []
     },
     {
@@ -813,7 +813,7 @@ window.WORKBENCH_META = {
       "page": "招聘公告",
       "mode": "html",
       "status": "ok",
-      "fetchedAt": "2026-11-26 14:47",
+      "fetchedAt": "2026-11-27 14:39",
       "announcements": [
         {
           "title": "关联交易公告",
@@ -896,7 +896,7 @@ window.WORKBENCH_META = {
       "page": "招聘公告",
       "mode": "agent",
       "status": "agent",
-      "fetchedAt": "2026-11-26 14:47",
+      "fetchedAt": "2026-11-27 14:39",
       "announcements": []
     },
     {
@@ -916,7 +916,7 @@ window.WORKBENCH_META = {
       "page": "校园招聘公告",
       "mode": "html",
       "status": "ok",
-      "fetchedAt": "2026-11-26 14:47",
+      "fetchedAt": "2026-11-27 14:39",
       "announcements": [
         {
           "title": "文化活动公告",
@@ -943,7 +943,7 @@ window.WORKBENCH_META = {
       "page": "通知公告",
       "mode": "agent",
       "status": "agent",
-      "fetchedAt": "2026-11-26 14:47",
+      "fetchedAt": "2026-11-27 14:39",
       "announcements": []
     },
     {
@@ -953,78 +953,78 @@ window.WORKBENCH_META = {
       "page": "人才招聘",
       "mode": "html",
       "status": "ok",
-      "fetchedAt": "2026-11-26 14:47",
+      "fetchedAt": "2026-11-27 14:39",
       "announcements": [
         {
           "title": "贵州农商联合银行2026年第二批社会招聘拟录用人员名单公示",
           "date": "2026-09-14",
-          "url": "https://www.gznxbank.com/html/xn9999999/detail/60_18788.html?timestampNoCache=2026092570546383041",
+          "url": "https://www.gznxbank.com/html/xn9999999/detail/60_18788.html?timestampNoCache=2026113300628296004",
           "relevant": false
         },
         {
           "title": "贵州农商联合银行党委关于拟招录人员任职公示",
           "date": "2026-08-30",
-          "url": "https://www.gznxbank.com/html/xn9999999/detail/60_18786.html?timestampNoCache=2026092570546383041",
+          "url": "https://www.gznxbank.com/html/xn9999999/detail/60_18786.html?timestampNoCache=2026113300628296004",
           "relevant": false
         },
         {
           "title": "贵州农商联合银行2026年第二批社会招聘综合成绩及体检、考察通告",
           "date": "2026-08-04",
-          "url": "https://www.gznxbank.com/html/xn9999999/detail/60_18760.html?timestampNoCache=2026092570546383041",
+          "url": "https://www.gznxbank.com/html/xn9999999/detail/60_18760.html?timestampNoCache=2026113300628297004",
           "relevant": false
         },
         {
           "title": "贵州农商联合银行2026年第二批社会招聘面试通告",
           "date": "2026-07-29",
-          "url": "https://www.gznxbank.com/html/xn9999999/detail/60_18758.html?timestampNoCache=2026092570546383041",
+          "url": "https://www.gznxbank.com/html/xn9999999/detail/60_18758.html?timestampNoCache=2026113300628297004",
           "relevant": false
         },
         {
           "title": "贵州农商联合银行2026年第二批社会招聘资格复审递补通告",
           "date": "2026-07-28",
-          "url": "https://www.gznxbank.com/html/xn9999999/detail/60_18757.html?timestampNoCache=2026092570546383041",
+          "url": "https://www.gznxbank.com/html/xn9999999/detail/60_18757.html?timestampNoCache=2026113300628297004",
           "relevant": false
         },
         {
           "title": "贵州农商联合银行2026年第二批社会招聘资格复审通告",
           "date": "2026-07-23",
-          "url": "https://www.gznxbank.com/html/xn9999999/detail/60_18754.html?timestampNoCache=2026092570546383041",
+          "url": "https://www.gznxbank.com/html/xn9999999/detail/60_18754.html?timestampNoCache=2026113300628298004",
           "relevant": false
         },
         {
           "title": "贵州农商联合银行2026年第二批社会招聘笔试查分及有关事宜的通告",
           "date": "2026-07-20",
-          "url": "https://www.gznxbank.com/html/xn9999999/detail/60_18750.html?timestampNoCache=2026092570546383041",
+          "url": "https://www.gznxbank.com/html/xn9999999/detail/60_18750.html?timestampNoCache=2026113300628298004",
           "relevant": false
         },
         {
           "title": "贵州农商联合银行关于2026年第二批社会招聘笔试相关事项的通告",
           "date": "2026-07-15",
-          "url": "https://www.gznxbank.com/html/xn9999999/detail/60_18749.html?timestampNoCache=2026092570546384041",
+          "url": "https://www.gznxbank.com/html/xn9999999/detail/60_18749.html?timestampNoCache=2026113300628298004",
           "relevant": false
         },
         {
           "title": "贵州农商联合银行2026年第一批社会招聘拟录用人员名单公示",
           "date": "2026-07-07",
-          "url": "https://www.gznxbank.com/html/xn9999999/detail/60_18748.html?timestampNoCache=2026092570546384041",
+          "url": "https://www.gznxbank.com/html/xn9999999/detail/60_18748.html?timestampNoCache=2026113300628298004",
           "relevant": false
         },
         {
           "title": "贵州农商联合银行2026年第二批社会招聘简章",
           "date": "2026-07-02",
-          "url": "https://www.gznxbank.com/html/xn9999999/detail/60_18745.html?timestampNoCache=2026092570546384041",
+          "url": "https://www.gznxbank.com/html/xn9999999/detail/60_18745.html?timestampNoCache=2026113300628299004",
           "relevant": false
         },
         {
           "title": "贵州农商联合银行北京高校、香港专项引才拟录用人员名单公示",
           "date": "2026-06-24",
-          "url": "https://www.gznxbank.com/html/xn9999999/detail/60_18744.html?timestampNoCache=2026092570546384041",
+          "url": "https://www.gznxbank.com/html/xn9999999/detail/60_18744.html?timestampNoCache=2026113300628299004",
           "relevant": false
         },
         {
           "title": "贵州农商联合银行党委关于拟招录人员任职公示",
           "date": "2026-06-08",
-          "url": "https://www.gznxbank.com/html/xn9999999/detail/60_18741.html?timestampNoCache=2026092570546384041",
+          "url": "https://www.gznxbank.com/html/xn9999999/detail/60_18741.html?timestampNoCache=2026113300628299004",
           "relevant": false
         }
       ]
@@ -1036,7 +1036,7 @@ window.WORKBENCH_META = {
       "page": "机构公告与岗位",
       "mode": "agent",
       "status": "agent",
-      "fetchedAt": "2026-11-26 14:47",
+      "fetchedAt": "2026-11-27 14:39",
       "announcements": []
     },
     {
@@ -1046,7 +1046,7 @@ window.WORKBENCH_META = {
       "page": "招聘公告",
       "mode": "agent",
       "status": "agent",
-      "fetchedAt": "2026-11-26 14:47",
+      "fetchedAt": "2026-11-27 14:39",
       "announcements": []
     },
     {
@@ -1056,7 +1056,7 @@ window.WORKBENCH_META = {
       "page": "人才招聘",
       "mode": "html",
       "status": "ok",
-      "fetchedAt": "2026-11-26 14:47",
+      "fetchedAt": "2026-11-27 14:39",
       "announcements": [
         {
           "title": "个人借款合同公示",
